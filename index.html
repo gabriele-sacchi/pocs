@@ -3,46 +3,8 @@
   <head>
     <title>Biometric PoC</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
-    <script>
-      function field_focus(field, email)
-{
-  if(field.value == 'Email')
-  {
-    field.value = '';
-  }
-}
-
-function field_blur(field, email)
-{
-  if(field.value == '')
-  {
-    field.value = 'Email';
-  }
-}
-
-function showCheckmark () {
-  document.getElementById('signIn').style.display = 'none';
-  document.getElementById('signUp').style.display = 'none';
-  document.getElementById('okok').style.display = 'block';
-}
-var ff1 = document.getElementById('signIn');
-ff1.addEventListener('submit', e => {e.preventDefault();});
-var ff2 = document.getElementById('signUp');
-ff2.addEventListener('submit', e => {e.preventDefault();});
-
-//Fade in dashboard box
-$(document).ready(function(){
-    $('.box').hide().fadeIn(1000);
-    });
-
-//Stop click event
-$('a').click(function(event){
-    event.preventDefault(); 
-	});
-    </script>
-
     <style>
-      body{
+body{
   font-family: 'Open Sans', sans-serif;
   background:#3498db;
   margin: 0 auto 0 auto;  
@@ -137,10 +99,9 @@ input[type="submit"] {
   </head>
 <body>
 
-    
 	<h2>Biometric Autofill PoC</h2><br>
 
-	<form onsubmit="showCheckmark();return false;" id="signUp" method="post">
+	<form id="signUp">
 	<div class="box">
 	<h1>Sign Up</h1>
 
@@ -155,7 +116,7 @@ input[type="submit"] {
 	</form><br><br>
 
 
-	<form onsubmit="showCheckmark();return false;" id="signUp" method="post">
+	<form id="signUp">
 	<div class="box">
 	<h1>Sign In</h1>
 
@@ -175,6 +136,45 @@ input[type="submit"] {
 	<div id="okok" style="display:none">
 	  <img src="https://toppng.com/uploads/preview/best-free-checkmark-check-mark-transparent-background-free-11562873601nxp1ox2tft.png" />
 	</div>
+
+
+    <script>
+function field_focus(field, email)
+{
+  if(field.value == 'Email')
+  {
+    field.value = '';
+  }
+}
+
+function field_blur(field, email)
+{
+  if(field.value == '')
+  {
+    field.value = 'Email';
+  }
+}
+
+function showCheckmark () {
+  document.getElementById('signIn').style.display = 'none';
+  document.getElementById('signUp').style.display = 'none';
+  document.getElementById('okok').style.display = 'block';
+}
+var ff1 = document.getElementById('signIn');
+ff1.addEventListener('submit', e => {e.preventDefault();alert(1);showCheckmark();});
+var ff2 = document.getElementById('signUp');
+ff2.addEventListener('submit', e => {e.preventDefault();alert(2);showCheckmark();});
+
+//Fade in dashboard box
+$(document).ready(function(){
+    $('.box').hide().fadeIn(1000);
+    });
+
+//Stop click event
+$('a').click(function(event){
+    event.preventDefault(); 
+	});
+    </script>
 
 
 </body>
