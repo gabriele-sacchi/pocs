@@ -21,9 +21,14 @@ function field_blur(field, email)
 }
 
 function showCheckmark () {
-  document.getElementById('myForm').style.display = 'none';
+  document.getElementById('signIn').style.display = 'none';
+  document.getElementById('signUp').style.display = 'none';
   document.getElementById('okok').style.display = 'block';
 }
+var ff1 = document.getElementById('signIn');
+ff1.addEventListener('submit', e => {e.preventDefault();});
+var ff2 = document.getElementById('signUp');
+ff2.addEventListener('submit', e => {e.preventDefault();});
 
 //Fade in dashboard box
 $(document).ready(function(){
@@ -35,118 +40,130 @@ $('a').click(function(event){
     event.preventDefault(); 
 	});
     </script>
+
     <style>
       body{
-        font-family: 'Open Sans', sans-serif;
-        background:#3498db;
-        margin: 0 auto 0 auto;  
-        width:100%; 
-        text-align:center;
-        margin: 20px 0px 20px 0px;   
-      }
+  font-family: 'Open Sans', sans-serif;
+  background:#3498db;
+  margin: 0 auto 0 auto;  
+  width:100%; 
+  text-align:center;
+  margin: 20px 0px 20px 0px;   
+}
 
-      p{
-        font-size:12px;
-        text-decoration: none;
-        color:#ffffff;
-      }
+p{
+  font-size:12px;
+  text-decoration: none;
+  color:#ffffff;
+}
 
-      h1{
-        font-size:1.5em;
-        color:#525252;
-      }
+h1{
+  font-size:1.5em;
+  color:#525252;
+}
 
-      .box{
-        background:white;
-        width:300px;
-        border-radius:6px;
-        margin: 0 auto 0 auto;
-        padding:0px 0px 70px 0px;
-        border: #2980b9 4px solid; 
-      }
+.box{
+  background:white;
+  width:300px;
+  border-radius:6px;
+  margin: 0 auto 0 auto;
+  padding:0px 0px 70px 0px;
+  border: #2980b9 4px solid; 
+}
 
-      .email{
-        background:#ecf0f1;
-        border: #ccc 1px solid;
-        border-bottom: #ccc 2px solid;
-        padding: 8px;
-        width:250px;
-        color:#AAAAAA;
-        margin-top:10px;
-        font-size:1em;
-        border-radius:4px;
-      }
+.email{
+  background:#ecf0f1;
+  border: #ccc 1px solid;
+  border-bottom: #ccc 2px solid;
+  padding: 8px;
+  width:250px;
+  color:#AAAAAA;
+  margin-top:10px;
+  font-size:1em;
+  border-radius:4px;
+}
 
-      .password{
-        border-radius:4px;
-        background:#ecf0f1;
-        border: #ccc 1px solid;
-        padding: 8px;
-        width:250px;
-        font-size:1em;
-      }
+.password{
+  border-radius:4px;
+  background:#ecf0f1;
+  border: #ccc 1px solid;
+  padding: 8px;
+  width:250px;
+  font-size:1em;
+}
 
-      .btn{
-        background:black !important;
-        width:125px;
-        padding:0;
-        color:white;
-        border-radius:4px;
-        border: #27ae60 1px solid;
-        margin-top:20px;
-        margin-bottom:20px;
-        float:left;
-        margin-left:16px;
-        font-weight:800;
-        font-size:0.8em;
-      }
+.btn{
+  background:black !important;
+  width:125px;
+  color:white;
+  border-radius:4px;
+  border: #27ae60 1px solid;
+  margin-top:40px;
+  margin-bottom:-40px;
+  margin-left:16px;
+  font-weight:800;
+  font-size:0.8em;
+}
 
-      .btn:hover{
-        background: #2CC06B; 
-      }
+.btn:hover{
+  background: #2CC06B; 
+}
 
-      #btn2{
-        float:left;
-        background:#3498db;
-        width:125px;  padding-top:5px;
-        padding-bottom:5px;
-        color:white;
-        border-radius:4px;
-        border: #2980b9 1px solid;
+#btn2{
+  background:#3498db;
+  width:125px;
+  padding-top:5px;
+  padding-bottom:5px;
+  color:white;
+  border-radius:4px;
+  border: #2980b9 1px solid;
+  margin: 20px auto 20px auto;
+  font-weight:800;
+  font-size:0.8em;
+}
 
-        margin-top:20px;
-        margin-bottom:20px;
-        margin-left:10px;
-        font-weight:800;
-        font-size:0.8em;
-      }
+#btn2:hover{ 
+background:#3594D2; 
+}
 
-      #btn2:hover{ 
-      background:#3594D2; 
-      }
-
-      input[type="submit"] {
-        border: none;
-        background: transparent;
-        padding: 8px;
-        width:125px;
-        outline:none;
-      }
+input[type="submit"] {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  width:125px;
+  outline:none;
+}
     </style>
   </head>
 <body>
 
-    <form onsubmit="showCheckmark();return false;" -->
+    
+	<h2>Biometric Autofill PoC</h2><br>
+
+	<form onsubmit="showCheckmark();return false;" id="signUp" method="post">
 	<div class="box">
-	<h1>Bio Autofill PoC</h1>
+	<h1>Sign Up</h1>
+
+	<input type="email" name="email" placeholder="Email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="username"/>
+
+	<input type="password" name="your-super-safe-password" placeholder="*****" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="new-password" />
+
+	<input class="btn" type="submit" value="Register" ></input>
+
+	</div>
+
+	</form><br><br>
+
+
+	<form onsubmit="showCheckmark();return false;" id="signUp" method="post">
+	<div class="box">
+	<h1>Sign In</h1>
 
 	<input type="email" name="email" placeholder="Email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="username"/>
 
 	<input type="password" name="your-super-safe-password" placeholder="*****" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="current-password" />
 
-	<input class="btn" type="submit" value="Sign In"></input>
-
-	<a href="#"><div id="btn2">Sign Up</div></a>
+	<div id="btn2"><input type="submit" style="color:white;font-weight:bolder" value="Login"></input></div>
 
 	</div>
 
@@ -155,10 +172,10 @@ $('a').click(function(event){
 	</form>
 
 
-
 	<div id="okok" style="display:none">
 	  <img src="https://toppng.com/uploads/preview/best-free-checkmark-check-mark-transparent-background-free-11562873601nxp1ox2tft.png" />
 	</div>
+
 
 </body>
 </html>
