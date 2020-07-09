@@ -4,55 +4,64 @@
     <title>Biometric PoC</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
     <script>
-      function field_focus(field, email) {
-        if(field.value == 'Email') {
-          field.value = '';
-        }
-      }
+      function field_focus(field, email)
+{
+  if(field.value == 'Email')
+  {
+    field.value = '';
+  }
+}
 
-      function field_blur(field, email) {
-        if(field.value == '') {
-          field.value = 'Email';
-        }
-      }
+function field_blur(field, email)
+{
+  if(field.value == '')
+  {
+    field.value = 'Email';
+  }
+}
 
-      // Fade in dashboard box
-      $(document).ready(function(){
-        $('.box').hide().fadeIn(1000);
-      });
+function showCheckmark () {
+  document.getElementById('myForm').style.display = 'none';
+  document.getElementById('okok').style.display = 'block';
+}
 
-      // Stop click event
-      $('a').click(function(event){
-        event.preventDefault(); 
-      });
+//Fade in dashboard box
+$(document).ready(function(){
+    $('.box').hide().fadeIn(1000);
+    });
+
+//Stop click event
+$('a').click(function(event){
+    event.preventDefault(); 
+	});
     </script>
     <style>
       body{
         font-family: 'Open Sans', sans-serif;
-        background: #3498db;
+        background:#3498db;
         margin: 0 auto 0 auto;  
-        width: 100%; 
-        text-align: center;
+        width:100%; 
+        text-align:center;
         margin: 20px 0px 20px 0px;   
       }
 
       p{
-        font-size: 12px;
+        font-size:12px;
         text-decoration: none;
-        color: #ffffff;
+        color:#ffffff;
       }
 
       h1{
-        font-size: 1.5em;
-        color: #525252;
+        font-size:1.5em;
+        color:#525252;
       }
 
       .box{
-        background: white;
-        width: 300px;
-        border-radius: 6px;
+        background:white;
+        width:300px;
+        border-radius:6px;
         margin: 0 auto 0 auto;
-        padding: 0px 0px 70px 0px;
+        padding:0px 0px 70px 0px;
         border: #2980b9 4px solid; 
       }
 
@@ -78,7 +87,7 @@
       }
 
       .btn{
-        background:#2ecc71;
+        background:black !important;
         width:125px;
         padding:0;
         color:white;
@@ -93,7 +102,7 @@
       }
 
       .btn:hover{
-        background:#2CC06B; 
+        background: #2CC06B; 
       }
 
       #btn2{
@@ -116,7 +125,7 @@
       background:#3594D2; 
       }
 
-      button {
+      input[type="submit"] {
         border: none;
         background: transparent;
         padding: 8px;
@@ -127,27 +136,33 @@
   </head>
 <body>
 
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
 
-  <form onsubmit="window.location.href = 'window.location.replace('http://clipart-library.com/images/gceEdnzXi.png');return false;'" autocomplete="on">
+    <form onsubmit="showCheckmark();return false;" -->
     <div class="box">
     <h1>Bio Autofill PoC</h1>
 
     <input type="email" name="email" placeholder="Email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="username"/>
 
-    <input type="password" name="email" placeholder="*****" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="current-password" />
+    <input type="password" name="your-super-safe-password" placeholder="*****" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" autocomplete="current-password" />
 
-    <div class="btn">
-      <input type="submit" value="Sign In"></input>
-    </div>
+    <input class="btn" type="submit" value="Sign In"></input>
 
     <a href="#"><div id="btn2">Sign Up</div></a>
 
     </div>
 
-  </form>
+    <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
 
-  <p>Forgot your password? <u style="color:#f1c40f;">Click Here!</u></p>
+    </form>
+
+
+
+    <div id="okok" style="display:none">
+      <img src="https://toppng.com/uploads/preview/best-free-checkmark-check-mark-transparent-background-free-11562873601nxp1ox2tft.png" />
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 
 </body>
 </html>
